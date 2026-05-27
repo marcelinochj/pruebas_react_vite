@@ -1,0 +1,26 @@
+import React from 'react'
+import type { Gif } from '../../mocks/gifs.mock'
+
+interface Props {
+    gifs : Gif[];
+}
+
+export function GifsList ({gifs} : Props) {
+  return (
+    <>
+      <div className="gifs-container">
+            {
+                gifs.map((gif) => (
+                    <div key={gif.id} className='gif-card'>
+                        <img src={gif.url} alt={gif.title} />
+                        <h3>{gif.title}</h3>
+                        <p>
+                            {gif.width} x { gif.height} (1.5)
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </>
+  )
+}
