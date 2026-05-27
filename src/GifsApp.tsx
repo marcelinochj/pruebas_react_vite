@@ -8,8 +8,12 @@ export const GifsApp = () => {
 
     const [previousTerms, setPreviousTerms] = useState(['second'])
 
-    const handleSearchClicked = (search: string) => {
+    const handleTermClicked = (search: string) => {
         console.log({search});
+    }
+
+    const handleSearch = (query: string) => {
+        console.log(query);
     }
 
     return (
@@ -17,9 +21,9 @@ export const GifsApp = () => {
         {/*Header*/}
         <CustomHeader title='Buiscador de Gifs' desciption='Descubre y comparte'/>
 
-        <SearchBar placeholer='Buscar Gif'/>
+        <SearchBar placeholer='Buscar Gif' onQuery={handleSearch}/>
 
-        <PreviousSearches searches={previousTerms} onLabelClicked={handleSearchClicked}/>
+        <PreviousSearches searches={previousTerms} onLabelClicked={handleTermClicked}/>
 
         <GifsList gifs={mockGifs}/>
     </>
