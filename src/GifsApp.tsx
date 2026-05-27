@@ -1,27 +1,17 @@
 import React from 'react'
 import { mockGifs } from './mocks/gifs.mock'
+import { CustomHeader } from './shared/components/CustomHeader'
+import { SearchBar } from './shared/components/SearchBar'
+import { PreviousSearches } from './gifs/components/previousSearches'
 export const GifsApp = () => {
   return (
     <>
         {/*Header*/}
-        <div className='content-center'>
-            <h1>Buscador de Gifs</h1>
-            <p>Descubre y comparte los Gifs</p>
-        </div>
+        <CustomHeader title='Buiscador de Gifs' desciption='Descubre y comparte'/>
 
-        <div className="search-container">
-            <input type="text" placeholder='Buscar' />
-            <button>Buscar</button>
-        </div>
+        <SearchBar placeholer='Buscar Gif'/>
 
-        <div className="previous-searches">
-            <h2>Búsquedas previas</h2>
-            <ul className='previous-searches-list'>
-                <li>Gokú</li>
-                <li>Saitama</li>
-                <li>The last of us</li>
-            </ul>
-        </div>
+        <PreviousSearches/>
 
         <div className="gifs-container">
             {
@@ -30,7 +20,7 @@ export const GifsApp = () => {
                         <img src={gif.url} alt={gif.title} />
                         <h3>{gif.title}</h3>
                         <p>
-                            {gif.width} x { gif.height} (1.5 mb)
+                            {gif.width} x { gif.height} (1.5)
                         </p>
                     </div>
                 ))
